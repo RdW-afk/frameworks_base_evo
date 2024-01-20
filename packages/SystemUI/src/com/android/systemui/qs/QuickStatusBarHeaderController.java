@@ -19,6 +19,10 @@ package com.android.systemui.qs;
 import com.android.systemui.qs.dagger.QSScope;
 import com.android.systemui.util.ViewController;
 
+import com.android.systemui.qs.tiles.dialog.BluetoothDialogFactory;
+import com.android.systemui.qs.tiles.dialog.InternetDialogFactory;
+import com.android.systemui.statusbar.connectivity.AccessPointController;
+
 import javax.inject.Inject;
 
 /**
@@ -32,10 +36,16 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
 
     @Inject
     QuickStatusBarHeaderController(QuickStatusBarHeader view,
-            QuickQSPanelController quickQSPanelController
+            QuickQSPanelController quickQSPanelController, 
+            AccessPointController accessPointController,
+            BluetoothDialogFactory bluetoothDialogFactory,
+            InternetDialogFactory internetDialogFactory
     ) {
         super(view);
         mQuickQSPanelController = quickQSPanelController;
+        mView.setAccessPointController(accessPointController);
+        mView.setInternetDialogFactory(internetDialogFactory);
+        mView.setBluetoothDialogFactory(bluetoothDialogFactory);
     }
 
     @Override

@@ -54,12 +54,15 @@
         android:id="@+id/quick_qs_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/qqs_layout_margin_top"
+        android:layout_below="@id/afl_qs_container"
+        android:layout_marginTop="@dimen/qqs_layout_margin_top_2"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:focusable="true"
         android:paddingBottom="@dimen/qqs_layout_padding_bottom"
         android:importantForAccessibility="no">
     </com.android.systemui.qs.QuickQSPanel>
+
+    <include layout="@layout/afl_qs_layout"/>
 
 </com.android.systemui.qs.QuickStatusBarHeader>
